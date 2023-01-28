@@ -166,6 +166,42 @@ public class AppInitializer {
         }
     }
 
+    public static void customerManagement() {
+        //== // save,update,delete,list
+        Scanner input = new Scanner(System.in);
+
+        String[] customerQuestions = {"1) Save Customer", "2) Find Customer", "3) Update Customer", "4) Delete Customer", "5) Find All Customers", "6) Back to Home"};
+
+        while (true) {
+            for (String question : customerQuestions) {
+                System.out.println(question);
+            }
+            int userInput = input.nextInt();
+            switch (userInput) {
+                case 1:
+                    saveCustomer();
+                    break;
+                case 2:
+                    findCustomer();
+                    break;
+                case 3:
+                    updateCustomer();
+                    break;
+                case 4:
+                    deleteCustomer();
+                    break;
+                case 5:
+                    printAllCustomers();
+                    break;
+                case 6:
+                    return;
+                default:
+                    break;
+            }
+
+        }
+    }
+
     //    UI Area
     public static void printUi(String position) {
         Date date = new Date();
