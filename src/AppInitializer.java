@@ -309,6 +309,28 @@ public class AppInitializer {
         System.out.println("Customer Not Found");
     }
 
+    // Delete customer process
+
+    public static void deleteCustomer() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Insert Nic: ");
+        String nic = input.nextLine();
+        // foreach (can use)
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i][0] != null) {
+                if (customers[i][0].equals(nic)) {
+                    customers[i][0] = null;
+                    customers[i][1] = null;
+                    customers[i][2] = null;
+                    customers[i][3] = null;
+                    System.out.println("Customer Deleted!");
+                    return;
+                }
+            }
+        }
+        System.out.println("Customer Not Found!");
+    }
+
     //    UI Area
     public static void printUi(String position) {
         Date date = new Date();
