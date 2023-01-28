@@ -278,6 +278,37 @@ public class AppInitializer {
         System.out.println("Customer Not Found!");
     }
 
+    //    Update customer process
+
+    public static void updateCustomer() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Insert Nic to find the customer");
+        String nic = input.nextLine();
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i][0] != null) {
+                if (customers[i][0].equals(nic)) {
+                    //===========Update
+                    String newName, newAddress;
+                    double newSalary;
+                    System.out.println("Insert Customer Name to update: ");
+                    newName = input.nextLine();
+                    System.out.println("Insert Customer Address to update: ");
+                    newAddress = input.nextLine();
+                    System.out.println("Insert Customer Salary to update: ");
+                    newSalary = input.nextDouble();
+
+                    customers[i][1] = newName;
+                    customers[i][2] = newAddress;
+                    customers[i][3] = String.valueOf(newSalary);
+                    System.out.println("Customer Updated!");
+                    //===========Update
+                    return;
+                }
+            }
+        }
+        System.out.println("Customer Not Found");
+    }
+
     //    UI Area
     public static void printUi(String position) {
         Date date = new Date();
