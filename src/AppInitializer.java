@@ -331,6 +331,18 @@ public class AppInitializer {
         System.out.println("Customer Not Found!");
     }
 
+    //    Find all customers process
+
+    public static void printAllCustomers() {
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i][0] != null) {
+                System.out.println("| NIC: " + customers[i][0] + "|\tName: " + customers[i][1] + "|\tAddress: " + customers[i][2] + "|\tSalary: " + customers[i][3] + "|");
+            } else {
+                return;
+            }
+        }
+    }
+
     //    UI Area
     public static void printUi(String position) {
         Date date = new Date();
