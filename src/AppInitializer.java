@@ -166,6 +166,7 @@ public class AppInitializer {
         }
     }
 
+    //    Customer Management process
     public static void customerManagement() {
         //== // save,update,delete,list
         Scanner input = new Scanner(System.in);
@@ -199,6 +200,56 @@ public class AppInitializer {
                     break;
             }
 
+        }
+    }
+
+    //    Customer save process
+
+    public static void saveCustomer() {
+
+        Scanner input = new Scanner(System.in);
+
+        while (true) {
+
+            String nic, name, address;
+            double salary;
+
+            System.out.println("Insert Customer NIC");
+            nic = input.nextLine();
+            System.out.println("Insert Customer Name");
+            name = input.nextLine();
+            System.out.println("Insert Customer Address");
+            address = input.nextLine();
+            System.out.println("Insert Customer Salary");
+            salary = input.nextDouble();
+            //=========================
+            customerMainForLoop:
+            for (int i = 0; i < customers.length; i++) {
+                if (customers[i][0] != null) {
+                    if (customers[i][0].equals(nic)) {
+                        System.out.println("Customer Already Exists!");
+                        break;
+                    }
+                } else {
+                    customers[i][0] = nic;
+                    customers[i][1] = name;
+                    customers[i][2] = address;
+                    customers[i][3] = String.valueOf(salary);  // string <= double ()
+                    //====================
+                    System.out.println("Customer Saved!\n");
+                    System.out.println("1) Do you want to add an another customer?");
+                    System.out.println("2) Back to Main Menu");
+                    int option = input.nextInt();
+                    switch (option) {
+                        case 1:
+                            break customerMainForLoop;
+                        case 2:
+                            return;
+                        default:
+                            return;
+                    }
+                }
+            }
         }
     }
 
