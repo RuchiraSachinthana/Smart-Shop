@@ -99,5 +99,36 @@ public class AppInitializer {
         System.out.println("404 Not Found!");
         return false;
     }
-    
+
+    //    Register process
+
+    public static boolean register() {
+// [free?] , []1?, 2?, 3?] => Empty -> insert user
+        Scanner input = new Scanner(System.in);
+//        Check array empty or not
+        if (users[users.length - 1][0] != null) {
+            System.out.println("User Database is full!");
+            return false;
+        }
+
+        System.out.println("Insert your Email: ");
+        String email = input.nextLine();
+        System.out.println("Insert your Password: ");
+        String password = input.nextLine();
+
+        for (int x = 0; x < users.length; x++) {
+            if (users[x][0] == null) {
+                users[x][0] = email;
+                users[x][1] = password;
+                return true;
+            } else {
+                if (users[x][0].equalsIgnoreCase(email)) {
+                    System.out.println("Email is already exist!");
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
 }
