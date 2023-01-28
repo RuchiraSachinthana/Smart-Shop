@@ -253,6 +253,31 @@ public class AppInitializer {
         }
     }
 
+    //    Find customer process
+
+    public static void findCustomer() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Insert NIC: ");
+        String nic = input.nextLine();
+
+        // using foreach loop
+
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i][0] != null) {
+                if (customers[i][0].equals(nic)) {
+                    System.out.println("=================== Customer ==================");
+                    System.out.println("Customer NIC: " + customers[i][0]);
+                    System.out.println("Customer Name: " + customers[i][1]);
+                    System.out.println("Customer Address: " + customers[i][2]);
+                    System.out.println("Customer Salary: " + customers[i][3]);
+                    System.out.println("=================== Customer ==================");
+                    return;
+                }
+            }
+        }
+        System.out.println("Customer Not Found!");
+    }
+
     //    UI Area
     public static void printUi(String position) {
         Date date = new Date();
