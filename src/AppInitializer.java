@@ -343,6 +343,79 @@ public class AppInitializer {
         }
     }
 
+    //    Order Process
+
+    public static void placeNewOrder() {
+        System.out.println("Inset Customer NIC: ");
+        Scanner input = new Scanner(System.in);
+        String nic = input.nextLine();
+        String name, address;
+        double salary;
+
+//       ====================== Customer Find ==================
+
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i][0] != null) {
+                if (customers[i][0].equals(nic)) {
+                    System.out.println("=================== Customer ==================");
+                    name = customers[i][1];
+                    address = customers[i][2];
+                    salary = Double.parseDouble(customers[i][3]); //[string<=double], [double<=string]** [Double== wrapper class]
+                    System.out.println("=================== Customer ==================");
+                }
+            }
+        }
+
+//       ====================== Customer Find ==================
+
+//       ================== Item find ======================
+
+        System.out.println("Insert Item Code: ");
+        String code = input.nextLine();
+        String description;
+        double unitPrice = 0;
+        int qtyOnHand;
+
+        for (int i = 0; i < items.length; i++) {
+            if (items[i][0] != null) {
+                if (items[i][0].equals(code)) {
+                    System.out.println("==================Item===========");
+                    description = items[i][1];
+                    qtyOnHand = Integer.parseInt(items[i][2]); // integer <= string // boxing vs unboxing
+                    unitPrice = Double.parseDouble(items[i][3]); //[string<=double], [double<=string]** [Double== wrapper class]
+                    System.out.println("==================Item===========");
+                }
+            }
+        }
+
+
+//         ============= Order =======
+
+        System.out.println("Insert Order Code: ");
+        String orderId = input.nextLine();
+
+
+        for (int i = 0; i < orders.length; i++) {
+            if (orders[i][0] != null) {
+                if (orders[i][0].equals(orderId)) {
+                    System.out.println("Order id exists");
+                    return;
+                } else {
+                    Date date = new Date();
+                    SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+                    String selectedDate = f.format(date);
+                    orders[i][0] = orderId;
+                    orders[i][1] = nic;
+                    orders[i][2] = code;
+                    orders[i][3] = selectedDate;
+                    orders[i][4] = String.valueOf(unitPrice);
+                }
+            }
+        }
+        System.out.println("Order Completed!");
+
+    }
+
     //    UI Area
     public static void printUi(String position) {
         Date date = new Date();
