@@ -131,4 +131,37 @@ public class AppInitializer {
         return false;
     }
 
+    //    Dashboard Area
+
+    public static void openDashboard() {
+
+        Scanner input = new Scanner(System.in);
+
+        String[] dashboardQuestions = {"1) Customer Management", "2) Item Management", "3) Order Management", "4) Logout"};
+
+        while (true) {
+            for (String question : dashboardQuestions) {
+                System.out.println(question);
+            }
+            int userInput = input.nextInt();
+
+            switch (userInput) {
+                case 1:
+                    customerManagement();
+                    break;
+                case 2:
+//                    itemManagement()
+                    break;
+                case 3:
+                    placeNewOrder();
+                    break;
+                case 4:
+                    break;
+                default:
+                    return;
+
+            }
+        }
+    }
+
 }
