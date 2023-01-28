@@ -72,4 +72,32 @@ public class AppInitializer {
         }
 
     }
+
+    //    create methods
+//    Login process
+
+    public static boolean login() {
+//
+        printUi("Login");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please Enter the Email: ");
+        String email = input.nextLine();
+        System.out.println("Please Enter the Password: ");
+        String password = input.nextLine();
+
+        for (int i = 0; i < users.length; i++) {
+            if (users[i][0] != null && users[i][0].equals(email)) {
+                if (users[i][1].equals(password)) {
+                    System.out.println("Welcome again!");
+                    return true;
+                } else {
+                    System.out.println("Wrong Password!");
+                    return false;
+                }
+            }
+        }
+        System.out.println("404 Not Found!");
+        return false;
+    }
+    
 }
