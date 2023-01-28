@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class AppInitializer {
@@ -162,6 +164,28 @@ public class AppInitializer {
 
             }
         }
+    }
+
+    //    UI Area
+    public static void printUi(String position) {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+
+        String simpleDate = dateFormat.format(date); // 2023-01-27
+        String simpleTime = timeFormat.format(date); // 10:10:10
+
+        System.out.println("==================== " + simpleDate + " ========== " + simpleTime + " =====> " + position + " ==================== ");
+
+    }
+
+    //    End UI
+    public static void endUI() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
+        String year = dateFormat.format(date);
+
+        System.out.println("==================================== @ " + year + " Order Management system ====================================");
     }
 
 }
